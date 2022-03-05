@@ -1,23 +1,26 @@
 #!/usr/bin/env python3
 import time
+import os
+import json
 from datetime import datetime
 from datetime import date
 
 # now = datetime.now()
 # current_time = now.strftime("%H:%M:%S")
 # User database dictionary
-clients = {
-    0: {
-        "username": "trial",
-        "pin": 0000,
-        "balance": {"KSh": 140, "USD": 0}
-    },
-    1: {
-        "username": "evans",
-        "pin": 1111,
-        "balance": {"KSh": 1500, "USD": 10}
-    }
-}
+
+def update_clients():
+    f = open("clients.json", "w")
+    json.dump(clients, f)
+    f.close()
+
+def json_to_dict():
+    global clients
+    with open('clients.json') as json_file:
+        clients = json.load(json_file)
+
+json_to_dict()
+
 # print(clients[1]['username'])
 count = (clients.__len__())
 
@@ -55,7 +58,7 @@ def login():
     global login_day
     counter = 0
     while counter < count:
-        if clients[counter]['username'] == user_name and clients[counter]['pin'] == user_password:
+        if clients[str(counter)]['username'] == user_name and clients[str(counter)]['pin'] == user_password:
             print("Successful login!")
             user_match = True
             now = datetime.now()
@@ -105,8 +108,8 @@ def menu():
 def balance():
     global KSHbala
     global USDbala
-    KSHbala = clients[counter]['balance']['KSh']
-    USDbala = clients[counter]['balance']['USD']
+    KSHbala = clients[str(counter)]['balance']['KSh']
+    USDbala = clients[str(counter)]['balance']['USD']
     print("""
     Dear {}, you have {} shillings in your KSh. account
     and {} dollars in your USD account.
@@ -181,7 +184,7 @@ def kshwithdrawal():
         except ValueError:
             print("The amount should be an integer.")
             kshwithdrawal()
-    if ksh_wamount > int(clients[counter]['balance']['KSh']):
+    if ksh_wamount > int(clients[str(counter)]['balance']['KSh']):
         print("Amount exceeds your KSH account balance. Please top up first.")
         time.sleep(3)
         menu()
@@ -189,8 +192,9 @@ def kshwithdrawal():
         print("Minimum withdrawal amount is 5 shillings.")
         time.sleep(3)
         withdrawal()
-    ksh_bal_calc = int(clients[counter]['balance']['KSh']) - ksh_wamount
-    clients[counter]['balance']['KSh'] = str(ksh_bal_calc)
+    ksh_bal_calc = int(clients[str(counter)]['balance']['KSh']) - ksh_wamount
+    clients[str(counter)]['balance']['KSh'] = str(ksh_bal_calc)
+    update_clients()
     print("{}, you have successfully withdrawn {} shillings from your KSH account.".format(user_name,ksh_wamount))
     time.sleep(3)
     ksh_withdrawal_receipt()
@@ -204,7 +208,7 @@ def usdwithdrawal():
         except ValueError:
             print("The amount should be an integer.")
             kshwithdrawal()
-    if usd_wamount > int(clients[counter]['balance']['USD']):
+    if usd_wamount > int(clients[str(counter)]['balance']['USD']):
         print("Amount exceeds your USD account balance. Please top up first.")
         time.sleep(3)
         menu()
@@ -212,8 +216,9 @@ def usdwithdrawal():
         print("Minimum withdrawal amount is 1 USD.")
         time.sleep(3)
         withdrawal()
-    usd_bal_calc = int(clients[counter]['balance']['USD']) - usd_wamount
-    clients[counter]['balance']['USD'] = str(usd_bal_calc)
+    usd_bal_calc = int(clients[str(counter)]['balance']['USD']) - usd_wamount
+    clients[str(counter)]['balance']['USD'] = str(usd_bal_calc)
+    update_clients()
     print("{}, you have successfully withdrawn {} dollars from your USD account.".format(user_name, usd_wamount))
     time.sleep(3)
     usd_withdrawal_receipt()
@@ -335,8 +340,9 @@ def kshdeposit():
         print("Minimum deposit amount is 5 shillings.")
         time.sleep(3)
         deposit()
-    ksh_bal_calc = int(clients[counter]['balance']['KSh']) + ksh_damount
-    clients[counter]['balance']['KSh'] = str(ksh_bal_calc)
+    ksh_bal_calc = int(clients[str(counter)]['balance']['KSh']) + ksh_damount
+    clients[str(counter)]['balance']['KSh'] = str(ksh_bal_calc)
+    update_clients()
     print("{}, you have successfully deposited {} shillings to your KSH account.".format(user_name,ksh_damount))
     time.sleep(3)
     ksh_deposit_receipt()
@@ -354,8 +360,9 @@ def usddeposit():
         print("Minimum deposit amount is 1 USD.")
         time.sleep(3)
         deposit()
-    usd_bal_calc = int(clients[counter]['balance']['USD']) + usd_damount
-    clients[counter]['balance']['USD'] = str(usd_bal_calc)
+    usd_bal_calc = int(clients[str(counter)]['balance']['USD']) + usd_damount
+    clients[str(counter)]['balance']['USD'] = str(usd_bal_calc)
+    update_clients()
     print("{}, you have successfully deposuted {} dollars to your USD account.".format(user_name, usd_damount))
     time.sleep(3)
     usd_deposit_receipt()
