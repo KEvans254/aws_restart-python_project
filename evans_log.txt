@@ -34,3 +34,61 @@ OPERATION: Successful logout.
    User: evans
   Login day: March 07, 2022 
   Login time: 18:45:03 
+
+
+OPERATION: Successful login. 
+   User: evans
+  Login day: March 07, 2022 
+  Login time: 19:13:37 
+
+
+OPERATION: PIN CHANGE. 
+   User: evans
+  Day: March 07, 2022 
+  Time: 19:21:31 
+
+
+OPERATION: Successful login. 
+   User: evans
+  Login day: March 07, 2022 
+  Login time: 19:23:23 
+
+
+OPERATION: PIN CHANGE. 
+   User: evans
+  Day: March 07, 2022 
+  Time: 19:23:39 
+
+
+OPERATION: Successful login. 
+   User: evans
+  Login day: March 07, 2022 
+  Login time: 19:25:09 
+
+
+OPERATION: PIN CHANGE. 
+   User: evans
+  Day: March 07, 2022 
+  Time: 19:25:22 
+
+
+OPERATION: Successful login. 
+   User: evans
+  Login day: March 07, 2022 
+  Login time: 19:28:29 
+
+
+OPERATION: PIN CHANGE. 
+   User: evans
+  Day: March 07, 2022 
+  Time: 19:28:59 
+
+
+OPERATION: Successful login. 
+   User: evans
+  Login day: March 07, 2022 
+  Login time: 19:29:23 
+OPERATION: Successful logout. 
+   User: evans
+  Logout day: March 07, 2022 
+  Logout time: 19:32:19 

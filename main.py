@@ -49,11 +49,11 @@ def login():
     while True:
         try:
             global user_password
-            user_password = int(input("Enter password: "))
+            user_password = int(input("Enter pin: "))
             break
         except ValueError:
-            print("Ensure the password entered is a number.")
-            time.sleep(1)
+            print("Ensure the pin entered is a number.")
+            time.sleep(3)
             print(50 * "\n")
             onboard()
     global counter
@@ -74,7 +74,7 @@ def login():
         counter += 1
     if not user_match:
         print("Incorrect details entered. Please try again.")
-        time.sleep(1)
+        time.sleep(3)
         print(50 * "\n")
         onboard()
 
@@ -491,8 +491,8 @@ def pinchange_log():
 
 def logout_log():
     log = open(f"{user_name}_log.txt", "a+")
-    text = [f"OPERATION: Successful logout. \n", f"   User: {user_name}\n", f"  Login day: {logout_day} \n",
-            f"  Login time: {logout_time} \n"]
+    text = [f"OPERATION: Successful logout. \n", f"   User: {user_name}\n", f"  Logout day: {logout_day} \n",
+            f"  Logout time: {logout_time} \n"]
     log.writelines(text)
     log.close()
 
@@ -545,7 +545,7 @@ def deposit_log():
         account = "USD"
         amount = usd_damount
     log = open(f"{user_name}_transaction_log.txt", "a+")
-    text = [f"\n\nOPERATION: Withdrawal. \n", f"   User: {user_name}\n", f"  Day: {d2} \n",
+    text = [f"\n\nOPERATION: Deposit. \n", f"   User: {user_name}\n", f"  Day: {d2} \n",
             f"  Time: {current_time} \n", f"   Account: {account}\n", f"   Amount: {amount}\n"]
     log.writelines(text)
     log.close()
@@ -559,6 +559,7 @@ def account():
     2   View account log
     3   View transaction log
     4   Go back to main menu
+    Enter choice: 
     """)
     if account_menu_choice == "1":
         pin_change()
@@ -580,19 +581,18 @@ def pin_change():
             break
         except ValueError:
             print("Ensure the pin entered is a number.")
-            time.sleep(1)
-            print(50 * "\n")
+            time.sleep(2)
             account()
     if old_pin == user_password:
         new_pin1 = int(input("Enter new pin: "))
         new_pin2 = int(input("Reconfirm new pin: "))
         if new_pin1 != new_pin2:
             print("Pins do not match. Try again.")
-            time.sleep(1)
+            time.sleep(2)
             account()
         elif new_pin1 == old_pin:
             print("New pin cannot be same as old pin.")
-            time.sleep(1)
+            time.sleep(2)
             account()
         else:
             clients[str(counter)]['pin'] = new_pin1
@@ -606,8 +606,7 @@ def pin_change():
                             *** PLEASE WAIT ... ***
                             """)
             time.sleep(3)
-            print(50 * "\n")
-            logout_log()
+            print(20 * "\n")
             onboard()
     else:
         print("Incorrect details entered. Please try again.")

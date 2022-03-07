@@ -14,3 +14,27 @@ OPERATION: Withdrawal.
   Time: 18:44:15 
    Account: USD
    Amount: 1
+
+
+OPERATION: Withdrawal. 
+   User: evans
+  Day: March 07, 2022 
+  Time: 19:16:41 
+   Account: KSH
+   Amount: 5400
+
+
+OPERATION: Withdrawal. 
+   User: evans
+  Day: March 07, 2022 
+  Time: 19:17:50 
+   Account: USD
+   Amount: 150
+
+
+OPERATION: Withdrawal. 
+   User: evans
+  Day: March 07, 2022 
+  Time: 19:31:32 
+   Account: KSH
+   Amount: 4
