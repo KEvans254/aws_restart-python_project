@@ -1,0 +1,8 @@
+
+
+OPERATION: Withdrawal. 
+   User: trial
+  Day: March 07, 2022 
+  Time: 18:45:21 
+   Account: USD
+   Amount: 20

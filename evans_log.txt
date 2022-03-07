@@ -1,0 +1,36 @@
+
+
+OPERATION: Successful login. 
+   User: evans
+  Login day: March 07, 2022 
+  Login time: 13:48:22 
+OPERATION: Successful logout. 
+   User: evans
+  Login day: March 07, 2022 
+  Login time: 13:48:25 
+
+
+OPERATION: Successful login. 
+   User: evans
+  Login day: March 07, 2022 
+  Login time: 18:09:44 
+OPERATION: Successful logout. 
+   User: evans
+  Login day: March 07, 2022 
+  Login time: 18:10:22 
+
+
+OPERATION: Successful login. 
+   User: evans
+  Login day: March 07, 2022 
+  Login time: 18:42:44 
+
+
+OPERATION: Successful login. 
+   User: evans
+  Login day: March 07, 2022 
+  Login time: 18:43:45 
+OPERATION: Successful logout. 
+   User: evans
+  Login day: March 07, 2022 
+  Login time: 18:45:03 

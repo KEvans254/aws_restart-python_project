@@ -3,3 +3,6 @@ Some of the functionalities include:
 * Checking account balance.
 * Withdrawal of cash.
 * Deposit of cash.
+* PIN change.
+* Account log.
+* Transaction history.

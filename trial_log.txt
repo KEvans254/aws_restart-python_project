@@ -1,0 +1,16 @@
+
+
+OPERATION: Successful login. 
+   User: trial
+  Login day: March 07, 2022 
+  Login time: 18:28:21 
+
+
+OPERATION: Successful login. 
+   User: trial
+  Login day: March 07, 2022 
+  Login time: 18:45:10 
+OPERATION: Successful logout. 
+   User: trial
+  Login day: March 07, 2022 
+  Login time: 18:45:34 
