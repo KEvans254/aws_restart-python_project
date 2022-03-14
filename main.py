@@ -3,6 +3,7 @@ import time
 import json
 from datetime import datetime
 from datetime import date
+import os.path
 
 
 # now = datetime.now()
@@ -59,24 +60,69 @@ def login():
     global counter
     global login_time
     global login_day
+    now = datetime.now()
+    login_time = now.strftime("%H:%M:%S")
+    today = date.today()
+    login_day = today.strftime("%B %d, %Y")
     counter = 0
     while counter < count:
+        if clients[str(counter)]['username'] == user_name:
+            file_exists = os.path.exists(f'{user_name}_attempts.txt')
+            if not file_exists:
+                f = open(f"{user_name}_attempts.txt", "w")
+                f.write("0")
+                f.close()
+
+        if clients[str(counter)]['username'] == user_name and clients[str(counter)]['pin'] != user_password:
+            f = open(f"{user_name}_attempts.txt", "r")
+            attempts = int(f.read())
+
+            if attempts > 2:
+                clients[str(counter)]['blocked'] = True
+                update_clients()
+                print("Account BLOCKED.")
+                onboard()
+            attempts += 1
+            f = open(f"{user_name}_attempts.txt", "w")
+            f.write(str(attempts))
+            f.close()
+
         if clients[str(counter)]['username'] == user_name and clients[str(counter)]['pin'] == user_password:
+            if clients[str(counter)]['blocked']:
+                blocked_account_login_log()
+                blocked()
             print("Successful login!")
             user_match = True
-            now = datetime.now()
-            login_time = now.strftime("%H:%M:%S")
-            today = date.today()
-            login_day = today.strftime("%B %d, %Y")
+            reset_attempts()
             login_log()
             menu()
             break
         counter += 1
+
     if not user_match:
         print("Incorrect details entered. Please try again.")
         time.sleep(3)
         print(50 * "\n")
         onboard()
+
+
+def reset_attempts():
+    f = open(f"{user_name}_attempts.txt", "w")
+    f.write("0")
+    f.close()
+
+
+def blocked():
+    print(
+        f"""Dear {user_name}, your account has been BLOCKED.
+        This is due to too many incorrect attempts to log in with incorrect pin.
+        Please visit the nearest branch to sort it out.
+        """
+    )
+    time.sleep(4)
+    print(30 * "\n")
+    onboard()
+
 
 
 def menu():
@@ -477,13 +523,22 @@ def login_log():
     log.close()
 
 
+def blocked_account_login_log():
+    log = open(f"{user_name}_log.txt", "a+")
+    text = [f"\n\nOPERATION: Failed login because account is blocked. \n", f"   User: {user_name}\n",
+            f"  Login day: {login_day} \n", f"  Login time: {login_time} \n"]
+    log.writelines(text)
+    log.close()
+
+
 def pinchange_log():
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     today = date.today()
     d2 = today.strftime("%B %d, %Y")
     log = open(f"{user_name}_log.txt", "a+")
-    text = [f"\n\nOPERATION: PIN CHANGE. \n", f"   User: {user_name}\n", f"  Day: {d2} \n",
+    text = [f"\n\nOPERATION: PIN CHANGE. \n", f"OPERATION: Successful logout. \n",
+            f"   User: {user_name}\n", f"  Day: {d2} \n",
             f"  Time: {current_time} \n"]
     log.writelines(text)
     log.close()
@@ -559,8 +614,7 @@ def account():
     2   View account log
     3   View transaction log
     4   Go back to main menu
-    Enter choice: 
-    """)
+    Enter choice: """)
     if account_menu_choice == "1":
         pin_change()
     elif account_menu_choice == "2":

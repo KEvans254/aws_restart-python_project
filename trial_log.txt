@@ -24,3 +24,43 @@ OPERATION: Successful logout.
    User: trial
   Logout day: March 07, 2022 
   Logout time: 19:44:55 
+
+
+OPERATION: Failed login because account is blocked. 
+   User: trial
+  Login day: March 14, 2022 
+  Login time: 17:18:16 
+
+
+OPERATION: Failed login because account is blocked. 
+   User: trial
+  Login day: March 14, 2022 
+  Login time: 17:40:51 
+
+
+OPERATION: Failed login because account is blocked. 
+   User: trial
+  Login day: March 14, 2022 
+  Login time: 17:55:51 
+
+
+OPERATION: Successful login. 
+   User: trial
+  Login day: March 14, 2022 
+  Login time: 18:39:25 
+OPERATION: Successful logout. 
+   User: trial
+  Logout day: March 14, 2022 
+  Logout time: 18:39:29 
+
+
+OPERATION: Successful login. 
+   User: trial
+  Login day: March 14, 2022 
+  Login time: 18:50:01 
+
+
+OPERATION: Failed login because account is blocked. 
+   User: trial
+  Login day: March 14, 2022 
+  Login time: 18:52:18 
