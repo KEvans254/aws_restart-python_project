@@ -66,6 +66,9 @@ def login():
     login_day = today.strftime("%B %d, %Y")
     counter = 0
     while counter < count:
+        if clients[str(counter)]['username'] == user_name and clients[str(counter)]['blocked']:
+            blocked_account_login_log()
+            blocked()
         if clients[str(counter)]['username'] == user_name:
             file_exists = os.path.exists(f'{user_name}_attempts.txt')
             if not file_exists:
@@ -76,11 +79,13 @@ def login():
         if clients[str(counter)]['username'] == user_name and clients[str(counter)]['pin'] != user_password:
             f = open(f"{user_name}_attempts.txt", "r")
             attempts = int(f.read())
+            wrong_pin_log()
 
             if attempts > 2:
                 clients[str(counter)]['blocked'] = True
                 update_clients()
-                print("Account BLOCKED.")
+                account_block_log()
+                blocked()
                 onboard()
             attempts += 1
             f = open(f"{user_name}_attempts.txt", "w")
@@ -88,9 +93,6 @@ def login():
             f.close()
 
         if clients[str(counter)]['username'] == user_name and clients[str(counter)]['pin'] == user_password:
-            if clients[str(counter)]['blocked']:
-                blocked_account_login_log()
-                blocked()
             print("Successful login!")
             user_match = True
             reset_attempts()
@@ -111,6 +113,21 @@ def reset_attempts():
     f.write("0")
     f.close()
 
+def wrong_pin_log():
+    log = open(f"{user_name}_log.txt", "a+")
+    text = [f"\n\nOPERATION: Failed login because of wrong password. \n", f"   User: {user_name}\n",
+            f"  Login day: {login_day} \n", f"  Login time: {login_time} \n"]
+    log.writelines(text)
+    log.close()
+
+
+def account_block_log():
+    log = open(f"{user_name}_log.txt", "a+")
+    text = [f"\n\nOPERATION: Account state turned to BLOCKED.\n",
+            f"   User: {user_name}\n", f"  Blocked day: {login_day} \n", f"  Blocked time: {login_time} \n"]
+    log.writelines(text)
+    log.close()
+
 
 def blocked():
     print(
@@ -122,7 +139,6 @@ def blocked():
     time.sleep(4)
     print(30 * "\n")
     onboard()
-
 
 
 def menu():

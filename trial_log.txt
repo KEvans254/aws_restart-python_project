@@ -64,3 +64,133 @@ OPERATION: Failed login because account is blocked.
    User: trial
   Login day: March 14, 2022 
   Login time: 18:52:18 
+
+
+OPERATION: Failed login because account is blocked. 
+   User: trial
+  Login day: March 15, 2022 
+  Login time: 08:32:09 
+
+
+OPERATION: Failed login because of wrong password. 
+   User: trial
+  Login day: March 15, 2022 
+  Login time: 08:37:05 
+
+
+OPERATION: Account state turned to BLOCKED.
+   User: trial
+  Login day: March 15, 2022 
+  Login time: 08:37:05 
+
+
+OPERATION: Failed login because of wrong password. 
+   User: trial
+  Login day: March 15, 2022 
+  Login time: 08:37:24 
+
+
+OPERATION: Account state turned to BLOCKED.
+   User: trial
+  Login day: March 15, 2022 
+  Login time: 08:37:24 
+
+
+OPERATION: Account successfully UNBLOCKED.
+   User: trial
+  Unblock day: March 15, 2022 
+  Unblock time: 08:59:14 
+
+
+OPERATION: Failed login because of wrong password. 
+   User: trial
+  Login day: March 15, 2022 
+  Login time: 09:01:31 
+
+
+OPERATION: Failed login because of wrong password. 
+   User: trial
+  Login day: March 15, 2022 
+  Login time: 09:01:45 
+
+
+OPERATION: Failed login because of wrong password. 
+   User: trial
+  Login day: March 15, 2022 
+  Login time: 09:01:58 
+
+
+OPERATION: Failed login because of wrong password. 
+   User: trial
+  Login day: March 15, 2022 
+  Login time: 09:02:06 
+
+
+OPERATION: Account state turned to BLOCKED.
+   User: trial
+  Blocked day: March 15, 2022 
+  Blocked time: 09:02:06 
+
+
+OPERATION: Failed login because of wrong password. 
+   User: trial
+  Login day: March 15, 2022 
+  Login time: 09:02:11 
+
+
+OPERATION: Account state turned to BLOCKED.
+   User: trial
+  Blocked day: March 15, 2022 
+  Blocked time: 09:02:11 
+
+
+OPERATION: Failed login because account is blocked. 
+   User: trial
+  Login day: March 15, 2022 
+  Login time: 09:02:17 
+
+
+OPERATION: Account successfully UNBLOCKED.
+   User: trial
+  Unblock day: March 15, 2022 
+  Unblock time: 09:04:17 
+
+
+OPERATION: Failed login because of wrong password. 
+   User: trial
+  Login day: March 15, 2022 
+  Login time: 09:28:17 
+
+
+OPERATION: Failed login because of wrong password. 
+   User: trial
+  Login day: March 15, 2022 
+  Login time: 09:28:23 
+
+
+OPERATION: Failed login because of wrong password. 
+   User: trial
+  Login day: March 15, 2022 
+  Login time: 09:28:30 
+
+
+OPERATION: Failed login because of wrong password. 
+   User: trial
+  Login day: March 15, 2022 
+  Login time: 09:28:40 
+
+
+OPERATION: Account state turned to BLOCKED.
+   User: trial
+  Blocked day: March 15, 2022 
+  Blocked time: 09:28:40 
+
+
+OPERATION: Successful login. 
+   User: trial
+  Login day: March 15, 2022 
+  Login time: 10:10:35 
+OPERATION: Successful logout. 
+   User: trial
+  Logout day: March 15, 2022 
+  Logout time: 10:11:10 

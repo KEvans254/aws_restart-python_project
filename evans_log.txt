@@ -122,3 +122,21 @@ OPERATION: Successful logout.
    User: evans
   Logout day: March 14, 2022 
   Logout time: 17:48:51 
+
+
+OPERATION: Successful login. 
+   User: evans
+  Login day: March 15, 2022 
+  Login time: 09:49:10 
+
+
+OPERATION: Successful login. 
+   User: evans
+  Login day: March 15, 2022 
+  Login time: 10:06:04 
+
+
+OPERATION: Successful login. 
+   User: evans
+  Login day: March 15, 2022 
+  Login time: 10:09:33 

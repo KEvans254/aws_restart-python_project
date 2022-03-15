@@ -1,1 +1,1 @@
-{"0": {"username": "trial", "pin": 0, "balance": {"KSh": 140, "USD": "20"}, "blocked": true}, "1": {"username": "evans", "pin": 1111, "balance": {"KSh": "23804", "USD": "159"}, "blocked": false}}
+{"0": {"username": "trial", "pin": 0, "balance": {"KSh": 140, "USD": "20"}, "blocked": false}, "1": {"username": "evans", "pin": 1111, "balance": {"KSh": "23804", "USD": "159"}, "blocked": false}}
