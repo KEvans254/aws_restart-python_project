@@ -194,3 +194,13 @@ OPERATION: Successful logout.
    User: trial
   Logout day: March 15, 2022 
   Logout time: 10:11:10 
+
+
+OPERATION: Successful login. 
+   User: trial
+  Login day: March 15, 2022 
+  Login time: 11:27:01 
+OPERATION: Successful logout. 
+   User: trial
+  Logout day: March 15, 2022 
+  Logout time: 11:27:07 

@@ -7,8 +7,11 @@ import os.path
 
 def json_to_dict():
     global clients
-    with open('clients.json') as json_file:
-        clients = json.load(json_file)
+    try:
+        with open('clients.json') as json_file:
+            clients = json.load(json_file)
+    except:
+        print("Could not connect to the database at the moment.")
 
 
 json_to_dict()
@@ -16,7 +19,10 @@ json_to_dict()
 count = (clients.__len__())
 
 def update_clients():
-    f = open("clients.json", "w")
+    try:
+        f = open("clients.json", "w")
+    except IOError:
+        print("Could not connect to the database at the moment.")
     json.dump(clients, f)
     f.close()
 
